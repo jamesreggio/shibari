@@ -1,0 +1,8 @@
+# Build
+/lib
+
+# Dependencies
+/node_modules
+
+# Tools
+npm-debug.log

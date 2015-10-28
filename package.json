@@ -1,0 +1,44 @@
+{
+  "name": "shibari",
+  "version": "0.0.0",
+  "description": "Input element format binding",
+  "license": "MIT",
+  "keywords": [
+    "input",
+    "text",
+    "textbox",
+    "formatter",
+    "formatting",
+    "binding",
+    "browser"
+  ],
+  "author": {
+    "name": "James Reggio",
+    "email": "james.reggio@gmail.com",
+    "url": "http://regg.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamesreggio/shibari.git"
+  },
+  "homepage": "https://github.com/jamesreggio/shibari",
+  "bugs": "https://github.com/jamesreggio/shibari/issues",
+  "main": "src/shibari.js",
+  "directories": {
+    "lib": "lib",
+    "example": "public"
+  },
+  "scripts": {
+    "test": "make test",
+    "prepublish": "make build"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.6",
+    "http-server": "^0.8.0",
+    "javascript": "jamesreggio/javascript#0.0.2",
+    "jscs": "^2.4.0",
+    "jshint": "^2.8.0",
+    "uglifyify": "^3.0.1",
+    "watchy": "^0.6.1"
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shibari</title>
+  </head>
+  <body>
+    <form>
+      <input type="tel" id="cc-num">
+      <input type="tel" id="cc-exp">
+      <input type="tel" id="ssn">
+    </form>
+    <!-- Must be scheme-relative to maintain source-order loading in IE6. -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.13/es5-shim.js"></script>
+    <script src="lib/shibari.js"></script>
+    <script>
+      shibari.payment.card(document.getElementById('cc-num'));
+      shibari.payment.expiry(document.getElementById('cc-exp'));
+      shibari.bind(document.getElementById('ssn'), {
+        permit: /\d/,
+        format: {
+          value: 'SSN: ___ - __ - ____ Extra: ',
+          sentinel: '_'
+        },
+        placeholders: true,
+        overflow: true
+      });
+    </script>
+  </body>
+</html>
