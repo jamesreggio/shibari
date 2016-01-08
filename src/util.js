@@ -16,12 +16,12 @@ var util = module.exports = {
    * Simple polyfill for `Object.create`.
    * Eliminates the need to include `es5-sham` for non-ES5 browsers.
    */
-  create: function(proto) {
+  create: function(prototype) {
     function Polyfill() { }
     if (Object.create) {
       return Object.create.apply(null, arguments);
     } else {
-      Polyfill.prototype = proto;
+      Polyfill.prototype = prototype;
       return new Polyfill();
     }
   },
@@ -58,23 +58,23 @@ var util = module.exports = {
    */
   type: {
     fn: function(value) {
-      return typeof value === 'function';
+      return value ? (value.constructor === Function) : false;
     },
 
     obj: function(value) {
-      return typeof value === 'object';
+      return value ? (value.constructor === Object) : false;
     },
 
     str: function(value) {
-      return typeof value === 'string';
+      return value ? (value.constructor === String) : false;
     },
 
     regex: function(value) {
-      return value instanceof RegExp;
+      return value ? (value.constructor === RegExp) : false;
     },
 
     input: function(value) {
-      return value && value.nodeName === 'INPUT';
+      return value ? (value.nodeName === 'INPUT') : false;
     },
   },
 };

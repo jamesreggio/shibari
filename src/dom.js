@@ -116,7 +116,7 @@ module.exports = {
     return (
       el.nodeName.toLowerCase() +
       (el.id ? ('#' + el.id) : '') +
-      (el.className ? ('.' + el.className) : '')
+      (el.className ? ('.' + el.className.split(' ').join('.')) : '')
     );
   },
 };

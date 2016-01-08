@@ -38,7 +38,8 @@ var shibari = module.exports = {
       util.type.fn(options.format) ||
       util.type.str(options.format) ||
       (util.type.obj(options.format) && util.type.str(options.format.value)),
-      'shibari.bind requires options.format to be a string or function'
+      'shibari.bind requires options.format to be a string, function, ' +
+      'or object'
     );
     options.format = util.wrap.fn(options.format);
 
@@ -391,9 +392,6 @@ var shibari = module.exports = {
     var inHandler = false;
     function handler() {
       util.log.open('shibari.handler', dom.stringify(el));
-      // TODO: Needed for proper event propagation?
-      // e.preventDefault();
-      // e.stopPropagation();
 
       // Prevent re-entrancy and exit early, if possible.
       var next = dom.input.value(el);
@@ -422,6 +420,7 @@ var shibari = module.exports = {
       util.log.close();
     }
 
+    // TODO: Verify event bubbling is correct here.
     function propertychangeHandler(e) {
       // Limit to `value` property.
       if (e.propertyName !== 'value') {
